@@ -53,7 +53,7 @@ def find_all_products():
 def find_product_by_uid(product_id: int):
     product = productsController.find_by_id(product_id)
     if product is None:
-        return {"error": "Product not found"}
+        return {"message": "Product not found"}
     return product
 
 
@@ -61,6 +61,17 @@ def find_product_by_uid(product_id: int):
 def create_product(product: ProductModel):
     product = productsController.create(product)
     return product
+
+# update
+
+
+@products_router.put('/')
+def update_product(product: ProductModel):
+    result = productsController.update(product)
+
+    if result is None:
+        return {"message": "Product not found"}
+    return result
 
 
 @products_router.delete('/{product_id}/')
@@ -70,4 +81,4 @@ def delete_product(product_id: int):
     if result:
         return {"message": "Product deleted successfully"}
     else:
-        return {"error": "Product not found"}
+        return {"message": "Product not found"}

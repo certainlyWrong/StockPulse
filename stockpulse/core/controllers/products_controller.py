@@ -77,7 +77,7 @@ class ProductsController(IProductsController):
             session.refresh(product)
             return product
 
-    def update(self, uid: str, product: ProductModel) -> ProductModel | None:
+    def update(self, product: ProductModel) -> ProductModel | None:
         """
         Update a product.
         """
