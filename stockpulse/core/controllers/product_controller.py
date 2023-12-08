@@ -12,7 +12,7 @@ from sqlmodel import (
 from stockpulse.core.models.product_model import ProductModel
 
 
-class IProductsController(ABC):
+class IProductController(ABC):
     """
     Interface for the ProductsController class.
     """
@@ -38,7 +38,7 @@ class IProductsController(ABC):
         raise NotImplementedError
 
 
-class ProductsController(IProductsController):
+class ProductsController(IProductController):
     """
     Controller for the Products entity.
     """

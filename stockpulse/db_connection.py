@@ -1,7 +1,7 @@
 from sqlalchemy import Engine, create_engine
 from sqlmodel import SQLModel
 
-from stockpulse.core.controllers.products_controller import ProductsController
+from stockpulse.core.controllers.product_controller import ProductsController
 import os
 
 DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
@@ -21,7 +21,7 @@ print("DATABASE_USER", DATABASE_USER)
 print("DATABASE_PASSWORD", DATABASE_PASSWORD)
 
 engine: Engine
-productsController: ProductsController
+productController: ProductsController
 
 try:
     engine = create_engine(
@@ -31,7 +31,7 @@ try:
 
     engine.connect()
     SQLModel.metadata.create_all(engine, checkfirst=True)
-    productsController = ProductsController(engine)
+    productController = ProductsController(engine)
 except Exception:
     print("Error connecting to database")
     exit()
