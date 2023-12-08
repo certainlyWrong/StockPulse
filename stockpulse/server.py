@@ -1,6 +1,10 @@
 
-from . import app
 import uvicorn
+
+from stockpulse.app import app
+
+
+# TODO pesquisar boirlerplate para projetos usando FastAPI
 
 
 def run():
