@@ -83,11 +83,20 @@ class ProductsController(IProductController):
         """
         with Session(self.engine) as session:
             try:
-                session.add(product)
-                session.commit()
-                session.refresh(product)
-                return product
-            except Exception:
+                existing_product = session.exec(
+                    select(ProductModel).where(ProductModel.id == id)).first()
+
+                if existing_product:
+                    for key, value in product.dict(exclude_unset=True).items():
+                        setattr(existing_product, key, value)
+
+                    session.commit()
+                    session.refresh(existing_product)
+                    return existing_product
+                else:
+                    return None
+            except Exception as e:
+                print(f"Erro ao atualizar: {e}")
                 return None
 
     def delete(self, id: int) -> bool:
