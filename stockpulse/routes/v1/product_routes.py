@@ -8,31 +8,31 @@ products_router = APIRouter(prefix='/product', tags=['product'])
 
 
 @products_router.get('/')
-def find_all_products():
+async def find_all_products():
     products = productController.find_all()
     return products
 
 
 @products_router.get('/{product_id}/')
-def find_product_by_uid(product_id: int):
+async def find_product_by_uid(product_id: int):
     product = productController.find_by_id(product_id)
     return product or {"message": "Product not found"}
 
 
 @products_router.post('/')
-def create_product(product: ProductModel):
+async def create_product(product: ProductModel):
     product = productController.create(product)
     return product
 
 
 @products_router.patch('/{product_id}/')
-def update_product(product_id: int, product: ProductModel):
+async def update_product(product_id: int, product: ProductModel):
     result = productController.update(product_id, product)
     return result or {"message": "Product not found"}
 
 
 @products_router.delete('/{product_id}/')
-def delete_product(product_id: int):
+async def delete_product(product_id: int):
     result = productController.delete(product_id)
 
     return (
