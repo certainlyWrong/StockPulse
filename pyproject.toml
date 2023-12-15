@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "stockpulse"
+name = "StockPulse"
 version = "0.1.0"
 description = ""
 authors = ["Adriano R. de Sousa <adrianorodriguesdsousa@ugpi.edu.br>"]
