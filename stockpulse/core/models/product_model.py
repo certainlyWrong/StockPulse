@@ -9,9 +9,9 @@ class ProductModel(SQLModel, table=True, schema="stockpulse"):
         default=None,
         primary_key=True,
     )
-    name: str
-    price: float
-    quantity: int
+    name: Optional[str]
+    price: Optional[float]
+    quantity: Optional[int]
     description: Optional[str]
-    created_at: datetime = Field(default_factory=datetime.now)
+    created_at: Optional[datetime] = Field(default_factory=datetime.now)
     updated_at: Optional[datetime]

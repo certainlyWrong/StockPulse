@@ -5,7 +5,7 @@ from stockpulse.core.controllers.product_controller import ProductsController
 import os
 
 DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
-DATABASE_PORT = os.getenv('DATABASE_PORT', '3306')
+DATABASE_PORT = os.getenv('DATABASE_PORT', '3301')
 DATABASE_NAME = os.getenv('DATABASE_NAME', 'stockpulse')
 DATABASE_USER = os.getenv('DATABASE_USER', 'root')
 DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD', '123456')
