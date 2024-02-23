@@ -2,7 +2,7 @@ from sqlalchemy import Engine, create_engine
 from sqlmodel import SQLModel
 
 from stockpulse.core.controllers.product_controller import ProductsController
-from .enviroments import Enviroments
+from .environment import Environment
 
 
 engine: Engine
@@ -10,7 +10,7 @@ productController: ProductsController
 
 try:
     engine = create_engine(
-        Enviroments.get_instance.database_connection,
+        Environment.get_instance.database_connection,
         echo=True,
     )
 
